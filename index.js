@@ -28,6 +28,11 @@ app.post("/", async (req, res) => {
   await film.save();
   return res.send("successfully created");
 });
+//get
+app.get("/", async (req, res) => {
+  const films = await Film.find();
+  return res.send(films);
+});
 
 //app
 
