@@ -49,6 +49,11 @@ app.put("/:id", async (req, res) => {
   );
   return res.send("successfully updated");
 });
+//delete
+app.delete("/:id", async (req, res) => {
+  const film = await Film.findByIdAndDelete(req.params.id);
+  return res.send("successfully deleted");
+});
 
 //app
 
