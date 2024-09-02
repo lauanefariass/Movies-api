@@ -64,7 +64,7 @@ app.get("/:id", async (req, res) => {
 
 //Create endpoint getByName
 app.get("/:title", async (req, res) => {
-  const film = await Film.findById(req.params.id);
+  const film = await Film.findOne(req.params);
   return res.send(film);
 });
 
