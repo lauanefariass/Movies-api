@@ -55,9 +55,19 @@ app.delete("/:id", async (req, res) => {
   return res.send("successfully deleted");
 });
 
+//Create endpoint getById
+app.delete("/:id", async (req, res) => {
+  const film = await Film.findByIdAndDelete(req.params.id);
+});
+
+//Create endpoint getByName
+
 //app
 
-app.listen(port, () => {
-  mongoose.connect("mongodb://localhost:27017/test");
+app.listen(port, async () => {
+  await mongoose
+    .connect("mongodb://172.17.0.1:27017/test")
+    .then(() => console.log("connected"))
+    .catch(() => console.error("failed"));
   console.log(`Listening to port ${port}`);
 });
