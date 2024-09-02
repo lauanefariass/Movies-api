@@ -61,6 +61,10 @@ app.delete("/:id", async (req, res) => {
 });
 
 //Create endpoint getByName
+app.get("/:title", async (req, res) => {
+  const film = await Film.findById(req.params.id);
+  return res.send(film);
+});
 
 //app
 
